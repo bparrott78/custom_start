@@ -1,0 +1,8 @@
+bash -c '
+apt update && apt install -y git;
+rm -rf /custom_start;
+git clone https://github.com/bparrott78/custom_start.git /custom_start;
+chmod +x /custom_start/start.sh;
+export PYTORCH_CUDA_ALLOC_CONF=backend:cudaMallocAsync;
+bash /custom_start/start.sh
+'
