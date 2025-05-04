@@ -174,8 +174,8 @@ MAIN_PY="$NETWORK_VOLUME/ComfyUI/main.py"
 if [ -f "$MAIN_PY" ]; then
     if ! grep -q "torch.serialization._legacy_serialization" "$MAIN_PY"; then
         echo "Patching main.py to enable legacy serialization"
-        sed -i "2 a import torch
-torch.serialization._legacy_serialization = True" "$MAIN_PY"
+        sed -i '2a import torch' "$MAIN_PY"
+        sed -i '3a torch.serialization._legacy_serialization = True' "$MAIN_PY"
     fi
 fi
 
